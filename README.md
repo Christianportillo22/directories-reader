@@ -1,1 +1,1 @@
-# directories-reader
+# Exercise

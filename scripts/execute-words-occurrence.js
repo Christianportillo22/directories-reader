@@ -1,5 +1,6 @@
 const prompts = require('prompts');
 const makeRequest = require('request-promise-native');
+const buildHistogram = require('ascii-histogram');
 
 const API_URL = 'http://localhost:3000';
 const ENDPOINT = '/directories/words-occurrence';
@@ -35,8 +36,9 @@ getPath()
 
     return makeRequest({ uri, json : true });
   })
-  .then((res) => {
-    console.log(JSON.stringify(res, null, 2))
+  .then(({data}) => {
+    const histogram = buildHistogram(data, { width: 50, sort: true });
+    console.log(histogram);
   })
   .then(() => {
     process.exit(0);
