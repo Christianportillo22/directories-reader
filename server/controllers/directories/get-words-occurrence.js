@@ -10,15 +10,24 @@ const getFolderFiles = promisify(fs.readdir);
 function getWordsOccurrence(req, res) {
   const path = req.query.path;
 
-  if (!path) throw new Error('param "path" is required');
-
-  calculateWordsOccurrence(path)
+  validatePath(path)
+    .then(calculateWordsOccurrence)
     .then((wordsOccurrence) => {
       res.status(200).jsonp({ data: wordsOccurrence });
     })
     .catch((error) => {
-      res.status(500).jsonp({ error: error.stack });
+      res.status(500).send(error);
     });
+}
+
+async function validatePath(path) {
+  const isValidPath = utils.doesPathExist(path) && await utils.isFolder(path);
+  
+  if (!isValidPath) {
+    return Promise.reject('Invalid path');
+  }
+
+  return path;
 }
 
 async function calculateWordsOccurrence(folderPath) {

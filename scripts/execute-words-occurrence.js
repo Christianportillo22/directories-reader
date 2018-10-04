@@ -30,11 +30,12 @@ async function getPath () {
 
 
 getPath()
-  .then(function makeCallToAPI (path) {
-    if (path === undefined) return;
-    const uri = `${API_URL}${ENDPOINT}?path=${path}`;
+  .then(function makeCallToAPI (dirPath) {
+    if (dirPath === undefined) return;
+    const uri = `${API_URL}${ENDPOINT}`;
+    const qs = { path: dirPath };
 
-    return makeRequest({ uri, json : true });
+    return makeRequest({ uri, qs, json : true });
   })
   .then(({data}) => {
     const histogram = buildHistogram(data, { width: 50, sort: true });
@@ -44,6 +45,6 @@ getPath()
     process.exit(0);
   })
   .catch((error) => {
-    console.log(error);
+    console.log(error.message || error.stack || error);
     process.exit(1);
   });
