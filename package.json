@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/index.js",
-    "test-endpoint": "node scripts/execute-words-occurrence.js"
+    "test-endpoint": "node scripts/calculate-words-occurrence.js"
   },
   "repository": {
     "type": "git",
