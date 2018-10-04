@@ -2,9 +2,10 @@
   "name": "exercise",
   "version": "1.0.0",
   "description": "exercise",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/Christianportillo22/exercise/issues"
   },
-  "homepage": "https://github.com/Christianportillo22/exercise#readme"
+  "homepage": "https://github.com/Christianportillo22/exercise#readme",
+  "dependencies": {
+    "adm-zip": "^0.4.11",
+    "app-root-path": "^2.1.0",
+    "body-parser": "^1.18.3",
+    "contractions": "^0.0.7",
+    "express": "^4.16.3",
+    "lodash": "^4.17.11",
+    "util": "^0.11.0"
+  }
 }
