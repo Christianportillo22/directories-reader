@@ -1,8 +1,6 @@
-const ROOT_PATH = require('app-root-path');
 const ZipFile = require('adm-zip');
 
-const utils = require(`${ROOT_PATH}/server/controllers/directories/utils`);
-const accumulate = require('./accumulate');
+const utils = require('./../utils');
 
 function calculateWordOccurrenceFromZipFile(filePath) {
   const zip = new ZipFile(filePath);
@@ -15,7 +13,7 @@ function calculateWordOccurrenceFromZipFile(filePath) {
     const fileText = file.getData().toString('utf8');
     const wordsOccurrence = utils.countWordsOccurrence(fileText);
 
-    return accumulate(acc, wordsOccurrence);
+    return utils.accumulate(acc, wordsOccurrence);
   }, {});
 }
 

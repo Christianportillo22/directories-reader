@@ -1,4 +1,4 @@
-const utils = require('./../utils');
+const utils = require('./utils');
 
 async function validatePath(path) {
   const isValidPath = utils.doesPathExist(path) && await utils.isFolder(path);

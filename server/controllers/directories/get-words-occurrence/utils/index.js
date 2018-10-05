@@ -1,14 +1,16 @@
+const accumulate = require('./accumulate');
+const buildFilePath = require('./build-file-path');
 const countWordsOccurrence = require('./count-words-occurrence');
+const doesPathExist = require('./does-path-exist');
 const groupFilesByType = require('./group-files-by-type');
-const readTextFile = require('./read-text-file');
-const buildPath = require('./build-path');
-const isTextFile = require('./is-text-file');
 const isCompressedFile = require('./is-compressed-file');
 const isFolder = require('./is-folder');
-const doesPathExist = require('./does-path-exist');
+const isTextFile = require('./is-text-file');
+const readTextFile = require('./read-text-file');
 
 module.exports = {
-  buildPath,
+  accumulate,
+  buildFilePath,
   countWordsOccurrence,
   doesPathExist,
   groupFilesByType,

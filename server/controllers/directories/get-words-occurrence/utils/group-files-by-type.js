@@ -1,7 +1,7 @@
 const isTextFile = require('./is-text-file');
 const isFolder = require('./is-folder');
 const isCompressedFile = require('./is-compressed-file');
-const buildPath = require('./build-path');
+const buildFilePath = require('./build-file-path');
 
 function groupFilesByFileType(files, folderPath) {
     const groupedFiles = {
@@ -14,7 +14,7 @@ function groupFilesByFileType(files, folderPath) {
     return files.reduce(async (promises, file) => {
       const groupedFilesConfig = await promises;
 
-      const filePath = buildPath(folderPath, file);
+      const filePath = buildFilePath(folderPath, file);
 
       let fileGroup = 'other';
       

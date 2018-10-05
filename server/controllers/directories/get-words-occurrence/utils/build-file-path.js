@@ -1,7 +1,7 @@
 const path = require('path');
 
-function buildPath (dirname, file) {
+function buildFilePath(dirname, file) {
   return path.resolve(dirname, file);
 }
 
-module.exports = buildPath;
+module.exports = buildFilePath;
