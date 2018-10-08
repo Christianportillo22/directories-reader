@@ -6,7 +6,7 @@ function countWordsOccurrence (text) {
   const isNotEmpty = word => !!word;
 
   const sanitizedText = contractions.expand((isString(text) ? text : ''))
-    .replace(/[\!\?\.,;-]/g, ' ')
+    .replace(/[\!\?,;]|(?<=[a-zA-Z0-9])[\.-](?![a-zA-Z0-9]+)|(?<![a-zA-Z0-9])[\.-](?=[a-zA-Z0-9]+)|(?<![a-zA-Z0-9])[\.-](?![a-zA-Z0-9]+)/g, ' ')
     .trim()
     .toLowerCase();
 

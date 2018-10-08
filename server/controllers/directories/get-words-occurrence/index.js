@@ -10,7 +10,6 @@ function getWordsOccurrence(req, res) {
       res.status(200).jsonp({ data: wordsOccurrence });
     })
     .catch((error) => {
-      console.log(error);
       res.status(500).send(error);
     });
 }
